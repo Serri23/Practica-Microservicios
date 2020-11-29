@@ -1,0 +1,4 @@
+com\practica\factura\repositories\FacturaRepository.class
+com\practica\factura\services\FacturaService.class
+com\practica\factura\controllers\FacturaController.class
+com\practica\factura\FacturaApplication.class

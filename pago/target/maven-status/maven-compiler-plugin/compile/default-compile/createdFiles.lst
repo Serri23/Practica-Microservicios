@@ -1,0 +1,4 @@
+com\practica\pago\repositories\PagoRepository.class
+com\practica\pago\services\PagoService.class
+com\practica\pago\PagoApplication.class
+com\practica\pago\controllers\PagoController.class
