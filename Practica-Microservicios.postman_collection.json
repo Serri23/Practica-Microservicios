@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "cfb013f7-b6a6-4057-9a33-c75f2d360efc",
+		"name": "Practica-Microservicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8004/api/factura/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8004/api/factura/5fc3e8da1b21981c2d27865e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"factura",
+						"5fc3e8da1b21981c2d27865e"
+					]
+				},
+				"description": "Crea una factura en la Bd"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8004/api/factura/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t\r\n{\r\n\t\"idFactura\":\"2222\",\r\n    \"lineas\": [\r\n        \"visita111\",\r\n        \"visita333\"\r\n    ],\r\n    \"formaPago\": 2,\r\n    \"importeTotal\": 40.0,\r\n    \"estadoFactura\": \"pendiente de pago\",\r\n    \"idCliente\": \"23sadas\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8004/api/factura/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"factura",
+						""
+					]
+				},
+				"description": "Guarda una factura nueva"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8004/api/factura/5fc3e8da1b21981c2d27865e",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8004/api/factura/5fc3ea8b1b21981c2d278661",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"factura",
+						"5fc3ea8b1b21981c2d278661"
+					]
+				},
+				"description": "Borra una factura"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/pagos/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/pagos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"pagos",
+						""
+					]
+				},
+				"description": "Lista de pagos\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/pago/5fc29728a275dc49d423fab4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/pago/5fc29728a275dc49d423fab4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"pago",
+						"5fc29728a275dc49d423fab4"
+					]
+				},
+				"description": "Devuelve un pago"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/pago/5fc29728a275dc49d423fab4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/pago/5fc29728a275dc49d423fab4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"pago",
+						"5fc29728a275dc49d423fab4"
+					]
+				},
+				"description": "Borra un pago"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/pago/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1231231\",\r\n    \"estadoPago\":\"impagado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/pago/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"pago",
+						""
+					]
+				},
+				"description": "Añade un pago"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/pago/1231231",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1231231\",\r\n    \"estadoPago\":\"pagado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/pago/1231231",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"pago",
+						"1231231"
+					]
+				},
+				"description": "Modifica un pago"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
