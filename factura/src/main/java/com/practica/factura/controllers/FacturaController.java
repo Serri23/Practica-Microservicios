@@ -5,7 +5,10 @@ import com.practica.entidadesDto.domains.FacturaDto;
 import com.practica.entidadesMongo.domains.Factura;
 import com.practica.factura.services.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -17,6 +20,12 @@ public class FacturaController {
 
     @Autowired
     FacturaService facturaService;
+
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
 
     //GET
     @GetMapping(value="/api/factura/{id}")
