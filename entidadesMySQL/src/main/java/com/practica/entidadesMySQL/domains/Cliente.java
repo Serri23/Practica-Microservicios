@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     @Column(name="provincia")
     private String provincia;
     @Column(name="nombre")
@@ -16,11 +16,11 @@ public class Cliente {
     @Column(name="estado")
     private String estado; //Sin facturas pendientes,factura pendiente de pago,impagado
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

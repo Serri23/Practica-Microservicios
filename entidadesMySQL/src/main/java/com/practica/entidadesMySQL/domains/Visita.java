@@ -9,7 +9,7 @@ public class Visita {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     @Column(name="importe")
     private long importe;
     /*@Column(name="id_cliente")
@@ -20,11 +20,11 @@ public class Visita {
     @Column(name="estado")
     private String estado;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
