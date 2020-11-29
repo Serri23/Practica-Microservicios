@@ -3,7 +3,10 @@ package com.practica.pago.controllers;
 import com.practica.entidadesMongo.domains.Pago;
 import com.practica.pago.services.PagoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -13,6 +16,11 @@ public class PagoController {
     @Autowired
     PagoService pagoService;
 
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
     //GET
     @GetMapping(value="/api/pago/{id}")
     public Mono<Pago> getPago(@PathVariable("id") String pagoId){
