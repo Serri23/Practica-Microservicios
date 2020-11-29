@@ -1,0 +1,4 @@
+com\practica\entidadesMongo\domains\Factura.class
+com\practica\entidadesMongo\domains\LineaFactura.class
+com\practica\entidadesMongo\domains\Pago.class
+com\practica\entidadesMongo\EntidadesMongoApplication.class
