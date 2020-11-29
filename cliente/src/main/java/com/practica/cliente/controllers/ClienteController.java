@@ -3,7 +3,10 @@ package com.practica.cliente.controllers;
 import com.practica.cliente.services.ClienteService;
 import com.practica.entidadesMySQL.domains.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +16,12 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
 
     //GET
     @GetMapping(value = "/api/cliente/{id}")
@@ -53,57 +62,7 @@ public class ClienteController {
     public List<Cliente> listarClientes(){
         return clienteService.listarClientes();
     }
-    //  Bill fromDB = this.billService.findById(id);
-    //        if(fromDB != null) {
-    //            b.setId(fromDB.getId());
-    //            return this.billService.save(b);
-    //        }
-    //        return null;
-    /*public List<Cliente> findAll() {
-        return this.billService.findAll();
-    }
-
-    @RequestMapping(value="/bills", method=RequestMethod.POST)
-    public Bill saveBill(@RequestBody Bill b) {
-        if(b != null)
-            return billService.save(b);
-        return null;
-    }
 
 
-    @RequestMapping(value = "/bills/{idBill}", method = RequestMethod.GET)
-    public Bill findById(@PathVariable("idBill") Integer id) {
-        Bill b = this.billService.findById(id);
-
-        if(b != null)
-            return b;
-        return null;
-
-    }
-
-    @RequestMapping(value="/bills/{idBill}", method=RequestMethod.DELETE)
-    public ResponseEntity<Bill> deleteBill(@PathVariable("idBill") Integer id) {
-        Bill fromDB = this.billService.findById(id);
-        if(fromDB != null) {
-            this.billService.deleteBill(fromDB);
-            return ResponseEntity.status(HttpStatus.OK).body(fromDB);
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-    }
-
-    @RequestMapping(value="/bills", method=RequestMethod.DELETE)
-    public void deleteAllBills() {
-        this.billService.deleteAll();
-    }
-
-    @RequestMapping(value="/bills/{idBill}", method=RequestMethod.PUT)
-    public Bill updateBill(@PathVariable("idBill") Integer id, @RequestBody Bill b) {
-        Bill fromDB = this.billService.findById(id);
-        if(fromDB != null) {
-            b.setId(fromDB.getId());
-            return this.billService.save(b);
-        }
-        return null;
-    }*/
 
 }
